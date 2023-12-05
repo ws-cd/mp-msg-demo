@@ -1,5 +1,4 @@
 import { setInterval } from "timers";
-import urlencode from "urlencode";
 import xmljs from "xml-js";
 
 /// dev
@@ -10,8 +9,6 @@ const config = {
   token: "eyJfYWlkIjoiYWM2MHJq",
   appID: "wx57a622fd5d94ed97",
   appsecret: "d074854419ba00d36d4aff2fb7db08cd",
-
-  hostname: "hostname",
 };
 async function init() {
   /// 刷新access_token
@@ -107,34 +104,6 @@ async function init() {
             }
           }
         }
-      }
-      if (url.pathname === "/monitoring") {
-        const authentication = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${
-          config.appID
-        }&redirect_uri=${urlencode(
-          config.hostname + "/code"
-        )}&response_type=code&scope=snsapi_userinfo&state=STATE&connect_redirect=1#wechat_redirect`;
-        const html = `
-        <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>Document</title>
-          </head>
-          <body>
-            <a href="${authentication}">点击接受服务号推送消息</a>
-          </body>
-        </html>
-                `;
-        const response = new Response(html);
-        response.headers.set("Content-Type", "text/html");
-        return response;
-      }
-      if (url.pathname === "/code") {
-        const { code } = Object.fromEntries(url.searchParams);
-        console.log(code);
-        return Response.json({ message: "ok" });
       }
 
       const res = Response.json({ message: "未找到" });
