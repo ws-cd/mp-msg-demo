@@ -7,8 +7,8 @@ import xmljs from "xml-js";
 let count = 0;
 const config = {
   token: "eyJfYWlkIjoiYWM2MHJq",
-  appID: "wx57a622fd5d94ed97",
-  appsecret: "d074854419ba00d36d4aff2fb7db08cd",
+  appID: "wx57a622fd5d94ed97", // 测试
+  appsecret: "d074854419ba00d36d4aff2fb7db08cd", // 测试
 };
 async function init() {
   /// 刷新access_token
