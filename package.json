@@ -1,0 +1,19 @@
+{
+  "name": "wx-platform-demo",
+  "module": "index.ts",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "start": "bun run index.ts",
+    "dev": "bun run --hot index.ts"
+  },
+  "type": "module",
+  "dependencies": {
+    "urlencode": "^2.0.0",
+    "xml-js": "^1.6.11"
+  }
+}
